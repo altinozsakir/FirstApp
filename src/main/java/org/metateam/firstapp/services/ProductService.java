@@ -13,9 +13,9 @@ import java.util.List;
 public class ProductService {
 
     private List<Product> products = new ArrayList<>(Arrays.asList(
-            new Product("1","car","50000",null),
-            new Product("2","brush","20",null),
-            new Product("3","home","800000",null)
+            new Product("1","car","50000"),
+            new Product("2","brush","20"),
+            new Product("3","home","800000")
     ));
 
     public List<Product> getAllProducts(){
@@ -29,4 +29,21 @@ public class ProductService {
     public void createProduct(Product product){
         products.add(product);
     }
+
+    public void updateProduct(String id,Product product){
+        for(int i = 0; i < products.size(); i++){
+            Product p = products.get(i);
+
+            if(p.getId().equals(id)) {
+                products.set(i, product);
+                return;
+            }
+        }
+
+    }
+
+    public void deleteProduct(String id){
+        products.removeIf(p -> p.getId().equals(id));
+    }
+
 }

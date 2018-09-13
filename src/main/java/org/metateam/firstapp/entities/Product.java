@@ -7,17 +7,17 @@ public class Product {
     private String id;
     private String name;
     private String price;
-    private Category category;
+
 
 
     public Product() {
     }
 
-    public Product(String id, String name, String price, Category category) {
+    public Product(String id, String name, String price) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.category = category;
+
     }
 
     public String getId() {
@@ -44,13 +44,6 @@ public class Product {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
 
 
@@ -60,7 +53,6 @@ public class Product {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
-                ", category=" + category +
                 '}';
     }
 }

@@ -28,5 +28,15 @@ public class ProductController {
         productService.createProduct(product);
     }
 
+    @RequestMapping(method=RequestMethod.PUT, value="/products/{id}")
+    public void updateProduct(@PathVariable String id,@RequestBody Product product){
+        productService.updateProduct(id,product);
+    }
+
+    @RequestMapping(method=RequestMethod.DELETE, value="/products/{id}")
+    public void deleteProduct(@PathVariable String id){
+        productService.deleteProduct(id);
+    }
+
 
 }

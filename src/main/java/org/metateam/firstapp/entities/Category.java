@@ -8,15 +8,15 @@ public class Category {
     private String id;
     private String name;
     private String description;
-    private List<Product> products;
+
 
     public Category(){}
 
-    public Category(String id, String name, String description, List<Product> products) {
+    public Category(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.products = products;
+
     }
 
     public String getId() {
@@ -45,13 +45,7 @@ public class Category {
 
 
 
-    public List<Product> getProducts() {
-        return products;
-    }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
 
     @Override
     public String toString() {
@@ -59,7 +53,6 @@ public class Category {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", products=" + products +
                 '}';
     }
 }
