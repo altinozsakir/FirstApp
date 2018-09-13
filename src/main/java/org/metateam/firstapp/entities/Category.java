@@ -8,18 +8,14 @@ public class Category {
     private String id;
     private String name;
     private String description;
-    private Date createdDate;
-    private Date updatedDate;
     private List<Product> products;
 
     public Category(){}
 
-    public Category(String id, String name, String description, Date createdDate, Date updatedDate, List<Product> products) {
+    public Category(String id, String name, String description, List<Product> products) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
         this.products = products;
     }
 
@@ -47,21 +43,7 @@ public class Category {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
-    }
 
     public List<Product> getProducts() {
         return products;
@@ -77,8 +59,6 @@ public class Category {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
-                ", updatedDate=" + updatedDate +
                 ", products=" + products +
                 '}';
     }
