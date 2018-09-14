@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +14,7 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
     public List<Product> getAllProducts(){
         List<Product> products = new ArrayList<>();
         productRepository.findAll().forEach(products::add);
@@ -33,12 +32,11 @@ public class ProductService {
     }
 
     public void updateProduct(String id,Product product){
-
-
+        productRepository.save(product);
     }
 
     public void deleteProduct(String id){
-
+        productRepository.delete(id);
     }
 
 }
