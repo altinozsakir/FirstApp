@@ -2,6 +2,8 @@ package org.metateam.firstapp.services;
 
 import org.metateam.firstapp.entities.Category;
 import org.metateam.firstapp.entities.Product;
+import org.metateam.firstapp.repostories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,38 +14,31 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private List<Product> products = new ArrayList<>(Arrays.asList(
-            new Product("1","car","50000"),
-            new Product("2","brush","20"),
-            new Product("3","home","800000")
-    ));
-
+    @Autowired
+    private ProductRepository productRepository;
     public List<Product> getAllProducts(){
+        List<Product> products = new ArrayList<>();
+        productRepository.findAll().forEach(products::add);
         return products;
     }
 
     public Product getProductById(String id){
-        return products.stream().filter(p -> p.getId().equals(id)).findFirst().get();
+        Product product;
+        product = productRepository.findOne(id);
+        return product;
     }
 
     public void createProduct(Product product){
-        products.add(product);
+        productRepository.save(product);
     }
 
     public void updateProduct(String id,Product product){
-        for(int i = 0; i < products.size(); i++){
-            Product p = products.get(i);
 
-            if(p.getId().equals(id)) {
-                products.set(i, product);
-                return;
-            }
-        }
 
     }
 
     public void deleteProduct(String id){
-        products.removeIf(p -> p.getId().equals(id));
+
     }
 
 }
